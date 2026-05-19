@@ -32,7 +32,7 @@ const Process = () => {
   ]
   return (
     <div>
-      <div style={{ backgroundImage: `url(${bgImage})`}} className="relative w-full z-1 flex bg-no-repeat bg-cover bg-center h-250">
+      <div style={{ backgroundImage: `url(${bgImage})`}} className="relative w-full flex bg-no-repeat bg-cover bg-center h-250">
         <div className='pl-[8%] text-[#2d2217] pt-30 w-full'>
           <div className='w-[40%] bg-[#ebe0d4a0] shadow-[0_0_40px_35px_#ebe0d4a0]'>
             <p className='text-[50px] font-bold'>Спокойный рабочий процесс реставрации</p>
@@ -41,7 +41,7 @@ const Process = () => {
           </div>
           <div className='flex justify-between mt-15'>
             {arrData.map((elem, ind) => (
-              <div className='w-[25%] flex'>
+              <div key={elem.id} className='w-[25%] flex'>
                 <div key={elem.id} className='border-1 w-[70%] border-[#bda285a8] rounded-2xl p-5 flex flex-col justify-center items-center text-center gap-4 bg-[#efe4cf92]'>
                   <div className='w-40 h-40 relative border-1 bg-[#ffe9d49a] text-[#c87e35] border-[#c87e35c2] rounded-[50%] flex items-center justify-center'>
                     {elem.icon}

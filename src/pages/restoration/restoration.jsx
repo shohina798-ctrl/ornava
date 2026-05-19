@@ -4,9 +4,9 @@ import iconAI from '../../assets/images/Geometry Icon copy.png'
 import LineDot from '../../components/layout/components/header/lineDot'
 import PutYourImg from '../../components/pages/restoration/putYourImg'
 import { RiImageCircleAiFill } from 'react-icons/ri'
-import { GiAmphora, GiOilySpiral } from 'react-icons/gi'
+import { GiOilySpiral } from 'react-icons/gi'
 
-const Restoration = () => {
+const Restoration = ({setRestoredData}) => {
     let arrData = [
         {
             id: 1,
@@ -29,7 +29,7 @@ const Restoration = () => {
     ]
   return (
     <div>
-        <div style={{ backgroundImage: `url(${bgImage})`}} className="w-full text-[#2d2217] flex bg-no-repeat bg-cover bg-center h-250">
+        <div style={{ backgroundImage: `url(${bgImage})`}} className="w-full text-[#2d2217] flex bg-no-repeat bg-cover bg-center h-250 relative z-1">
             <div className='flex items-start justify-between w-full pt-5'>
                 <div className='pl-[10%] w-[38%] flex flex-col items-start mt-15'>
                     <img src={iconAI} className='w-10 mb-5'/>
@@ -51,7 +51,7 @@ const Restoration = () => {
                     </div>
                 </div>
                 <div className='w-[60%] pr-[5%] mt-10'>
-                    <PutYourImg/>
+                    <PutYourImg setRestoredData={setRestoredData}/>
                 </div>
             </div>
         </div>

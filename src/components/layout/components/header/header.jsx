@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const Header = () => {
     const { t } = useTranslation();
-    const [activeSection, setActiveSection] = useState('home');
+    const [activeSection, setActiveSection] = useState(null);
     const scrollTo = (id) => {
         setActiveSection(id);
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
@@ -20,7 +20,7 @@ const Header = () => {
         <div className='flex items-center'>
             <img src = {logo} className='w-30 mt-2'/>
             <div>
-                <p className='font-serif font-[600] text-[25px]'>Ornava</p>
+                <p className='font-serif font-semibold text-[25px]'>Ornava</p>
                 <p>{t("title")}</p>
             </div>
         </div>
@@ -29,17 +29,17 @@ const Header = () => {
                 <p className='font-medium pb-1'>{t("opportunities")}</p>
                 {activeSection === 'home' && <LineDot/>}
             </button>
-            <button onClick={() => scrollTo('restoration')} className={activeSection === 'restoration' ? 'text-[#8f7445]' : ''}>
-                <p className='font-medium pb-1'>{t("restoration")}</p>
-                {activeSection === 'restoration' && <LineDot/>}
-            </button>
             <button onClick={() => scrollTo('process')} className={activeSection === 'process' ? 'text-[#8f7445]' : ''}>
                 <p className='font-medium pb-1'>{t("process")}</p>
                 {activeSection === 'process' && <LineDot/>}
             </button>
-            <button onClick={() => scrollTo('e')} className={activeSection === 'r' ? 'text-[#8f7445]' : ''}>
+            <button onClick={() => scrollTo('restoration')} className={activeSection === 'restoration' ? 'text-[#8f7445]' : ''}>
+                <p className='font-medium pb-1'>{t("restoration")}</p>
+                {activeSection === 'restoration' && <LineDot/>}
+            </button>
+            <button onClick={() => scrollTo('aboutUs')} className={activeSection === 'aboutUs' ? 'text-[#8f7445]' : ''}>
                 <p className='font-medium pb-1'>{t("about")}</p>
-                {activeSection === 'r' && <LineDot/>}
+                {activeSection === 'aboutUs' && <LineDot/>}
             </button>
         </div>
         <div className='flex items-center gap-5'>

@@ -3,16 +3,18 @@ import img from '../../../assets/images/detal2_page_1.png';
 import { useState } from 'react';
 import { Bubbles, Check, CloudUpload, Dumbbell, Folders, Leaf, Scale, ShieldCheck, Sparkles, X } from 'lucide-react';
 import FileInput from '../../public/fileInput';
-import Switch from '../../ui/switch';
+import Switch from './ui/switch';
 import LineDot from '../../layout/components/header/lineDot';
 import { postRestoration } from '../../../api/api';
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-hot-toast';
 
-const PutYourImg = () => {
+
+const PutYourImg = ({setRestoredData}) => {
     let {t} = useTranslation()
     const [base64, setBase64] = useState(null);
     const [file, setFile] = useState(null); 
-    let [strength, setStrength] = useState(1);
+    let [strength, setStrength] = useState(3);
     let [checkbox, setCheckbox] = useState(false);
     let strengthRestauration = [
         {
@@ -37,10 +39,19 @@ const PutYourImg = () => {
     const { mutate, isPending } = useMutation({
         mutationFn: postRestoration,
         onSuccess: (data) => {
-            console.log(data);
+            setRestoredData(data);
+            toast.success(data.status);
+            setBase64(null)
+            setTimeout(() => {
+                const resultSection = document.getElementById('resultRestauration');
+                if (resultSection) {
+                    resultSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
         },
         onError: (error) => {
-            console.log(error);
+            console.log(error)
+            toast.error(error?.response?.data?.detail || 'Проверьте интернет');
         }
     });
     const handleSubmit = (e) => {
@@ -51,48 +62,44 @@ const PutYourImg = () => {
             useAi: checkbox
         });
     };
+    {isPending && (
+        <div className="animate-pulse">
+            <div className="h-4 w-32 bg-gray-300 rounded mb-2"></div>
+            <div className="h-3 w-52 bg-gray-300 rounded"></div>
+        </div>
+    )}
   return (
     <div className='w-full h-full text-[#2d2217] text-center'>
-        <div className='relative border-1 p-5 rounded-2xl bg-[#faf1e6] border-[#e7cdab] h-full'>
-            <form onSubmit={handleSubmit} className='p-2 border-[#dca966] border-2 h-full flex flex-col'>
+        <div className='relative border-1 p-5 rounded-2xl bg-[#faf1e6] border-[#e7cdab]'>
+            <form onSubmit={handleSubmit} className='p-2 border-[#dca966] border-2 flex flex-col'>
                 <img src = {img} alt='' className='w-40 absolute top-[1px] -left-4'/>
                 <img src = {img} alt='' className='w-40 absolute top-[1px] -right-4 -scale-x-100'/>
                 <img src = {img} alt='' className='w-40 absolute bottom-[1px] -left-4 -scale-y-100'/>
                 <img src = {img} alt='' className='w-40 absolute bottom-[1px] -right-4 -scale-y-100 -scale-x-100'/>
-                <div className='mt-6'>
+                <div className='mt-4'>
                     <p className='font-medium text-[20px] text-[#7e5229] font-serif'>Загрузка и настройки</p>
                     <LineDot className="w-30 my-3 m-auto"/>
                 </div>
                 <div className='border-[#e7cdab] border-dashed border-2 rounded-2xl mx-7'>
                     <div className='w-full'>
                         {base64 && (
-                            <div className='flex flex-col p-6 items-center relative'>
-                                <img src = {base64} className='h-45'/>
-                                <div className=''>     
-                                <button
-                                    type="submit"
-                                    disabled={!base64 || isPending}
-                                    className='text-white text-[14px] flex items-center gap-2 bg-[#be944b] px-5 py-3 rounded-4xl mt-5 disabled:opacity-50 absolute -bottom-7 right-5'
-                                >
-                                    <Bubbles className='h-5'/>
-                                    {isPending ? 'Обработка...' : 'Начать реставрацию'}
-                                </button>
-                                </div>
+                            <div className='flex flex-col p-3 items-center relative'>
+                                <img src = {base64} className='h-56'/>
                                 <X onClick={() => setBase64(null)} className='absolute top-5 right-5 text-[#ff5500]'/>
                             </div>
                         )}
                     </div>
-                    <div className='p-5'>
+                    <div>
                         {!base64 && (
-                            <div className='flex flex-col gap-4 items-center'>                   
-                                <CloudUpload className='w-20 h-20 text-[#be944b]'/>
-                                <b className='text-[18px]'>{t("upload_title")}</b>
-                                <p>{t("upload_hint")}</p>
-                                <label className='text-white bg-[#ae7718] px-5 py-2 rounded-4xl cursor-pointer'>
+                            <div className='flex flex-col p-5 gap-1 items-center'>                   
+                                <CloudUpload className='w-15 h-15 text-[#be944b]'/>
+                                <b className='text-[16px]'>{t("upload_title")}</b>
+                                <p className='text-[14px]'>{t("upload_hint")}</p>
+                                <label className='text-white bg-[#ae7718] px-5 py-1 my-2 rounded-4xl cursor-pointer'>
                                     <p className='flex items-center gap-5'><Folders/>{t("upload_button")}</p>
                                     <FileInput className="hidden" onFile={(base, file) => {setBase64(base); setFile(file)}} />
                                 </label>
-                                <p>{t("upload_formats")}</p>
+                                <p className='text-[14px]'>{t("upload_formats")}</p>
                             </div>
                         )}
                     </div>
@@ -129,6 +136,16 @@ const PutYourImg = () => {
                                 <p className='text-[#39342b] text-start text-[14px]'><b>Ornava уважает подлинность культурного наследия </b>и использует ИИ только для бережного восстановления, а не изменения оригинала.</p>
                             </div>
                         </div>
+                        {base64 && (
+                            <button
+                                type="submit"
+                                disabled={!base64 || isPending}
+                                className='text-white text-[14px] flex items-center justify-center gap-2 bg-[#be944b] px-5 py-3 rounded-3xl disabled:opacity-50 '
+                            >
+                                <Bubbles className='h-5'/>
+                                {isPending ? 'Обработка...' : 'Начать реставрацию'}
+                            </button>
+                        )}
                     </div>
                 </div>
             </form>

@@ -43,7 +43,7 @@ const Footer = () => {
   return (
     <div>
         <footer className='relative'>
-            <div style={{ backgroundImage: `url("${bgImage}")`}} className="w-full px-10 pt-80 bg-no-repeat bg-cover bg-center h-250 -mt-50 z-30">
+            <div style={{ backgroundImage: `url("${bgImage}")`}} className="w-full px-10 pt-80 bg-no-repeat bg-cover bg-center h-250 -mt-50">
                 <div className='flex justify-between relative my-15 mx-20 mt-0 p-5 border-2 border-[#dfa333] text-[#4f3400]'>
                   <img src = {borderImg} alt="" className='w-30 absolute -top-[15px] -left-[29px]'/>
                   <img src = {borderImg} alt="" className='w-30 absolute -top-[15px] -right-[29px] -scale-x-100'/>

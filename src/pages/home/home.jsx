@@ -1,6 +1,6 @@
 import bgImage from '../../assets/images/home.png'
 import geometryIcon from '../../assets/images/Geometry Icon copy.png'
-import { Settings } from 'lucide-react'
+import { Bubbles } from 'lucide-react'
 import PutYourImg from '../../components/pages/home/putYourImg'
 import HomeFooter from '../../components/pages/home/homeFooter'
 import { useTranslation } from 'react-i18next'
@@ -19,11 +19,11 @@ const Home = () => {
                     <b className='text-[55px]'>{t("main_title")}</b>
                     <p className='font-medium w-[57%]'>{t("description")}</p>
                     <div className='flex items-center gap-10 font-medium'>
-                        <button className='flex items-center gap-3 text-white bg-[#be944b] px-5 py-2 rounded-4xl w-fit shadow-[0_0px_20px_0_#b38041] hover:-mt-2'>
-                            <Settings/>
+                        <button onClick={() => document.getElementById('restoration').scrollIntoView({ behavior: 'smooth' })} className='flex items-center gap-3 text-white bg-[#be944b] px-5 py-2 rounded-4xl w-fit shadow-[0_0px_20px_0_#b38041] hover:-mt-2'>
+                            <Bubbles/>
                             <p>{t("start_restoration")}</p>
                         </button>
-                        <button className='flex items-center gap-3 bg-[#edeae6] border-1 border-[#be944b] px-5 py-2 rounded-4xl w-fit shadow-[0_0px_20px_-4px_#be944b] hover:-mt-2'>
+                        <button onClick={() => document.getElementById('process').scrollIntoView({ behavior: 'smooth' })} className='flex items-center gap-3 bg-[#edeae6] border-1 border-[#be944b] px-5 py-2 rounded-4xl w-fit shadow-[0_0px_20px_-4px_#be944b] hover:-mt-2'>
                             <p>{t("learn_features")}</p>
                         </button>
                     </div>
@@ -33,9 +33,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
-        <section id="features">
-            <HomeFooter/>
-        </section>
+        <HomeFooter/>    
     </div>
   )
 }
