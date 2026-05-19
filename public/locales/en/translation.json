@@ -1,0 +1,32 @@
+{
+  "title": "Restoration of Cultural Images",
+  "opportunities": "Features",
+  "process": "Process",
+  "restoration": "Restoration",
+  "about": "About Us",
+  "dark": "Dark",
+  "light": "Light",
+  "ai_title": "AI for Careful Heritage Restoration",
+  "main_title": "Restoration of Historical Ornaments with AI that Preserves the Original",
+  "description": "Ornava helps enhance the clarity of antique carpets, textile patterns, and cultural artifacts while preserving their geometry, motifs, and historical character.",
+  "start_restoration": "Start Restoration",
+  "learn_features": "Learn Features",
+  "upload_title": "Upload an image for restoration",
+  "upload_hint": "Drag and drop your file here or click to select",
+  "upload_button": "Choose file",
+  "upload_formats": "Supported formats: JPG, PNG, WEBP, up to 10MB",
+  "footer": {
+    "1_title": "Museum quality preservation",
+    "1_desc": "Professional approach to heritage conservation",
+
+    "2_title": "Original geometry preserved",
+    "2_desc": "AI keeps structure and ornament intact",
+
+    "3_title": "Authenticity over beauty",
+    "3_desc": "We preserve historical truth of the artifact",
+
+    "4_title": "Careful AI restoration",
+    "4_desc": "Modern technology serves cultural preservation"
+  },
+  "remove": "Remove"
+}
