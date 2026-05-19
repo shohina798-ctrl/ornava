@@ -1,8 +1,7 @@
 import borderImg from '../../../assets/images/detal2_page_1.png';
 import { CloudUpload, Folders } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import FileInput from '../../public/fileInput';
-import { useState } from 'react';
+
 const PutYourImg = () => {
     let {t} = useTranslation()
   return (

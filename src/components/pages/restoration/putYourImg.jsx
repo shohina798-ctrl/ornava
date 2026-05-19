@@ -138,6 +138,7 @@ const PutYourImg = ({setRestoredData}) => {
                         </div>
                         {base64 && (
                             <button
+                                onClick={() => setRestoredData(null)}
                                 type="submit"
                                 disabled={!base64 || isPending}
                                 className='text-white text-[14px] flex items-center justify-center gap-2 bg-[#be944b] px-5 py-3 rounded-3xl disabled:opacity-50 '
