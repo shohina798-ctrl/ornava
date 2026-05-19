@@ -16,7 +16,7 @@ const Header = () => {
         }, 1000)
     };
   return (
-    <header className='sticky top-0 z-10 flex text-[#2d2217] justify-between items-center px-10 bg-[#f4ede4] border-b-2 border-[#e8caad]'>
+    <header className='sticky top-0 z-20 flex text-[#2d2217] justify-between items-center px-10 bg-[#f4ede4] border-b-2 border-[#e8caad]'>
         <div className='flex items-center'>
             <img src = {logo} className='w-30 mt-2'/>
             <div>
