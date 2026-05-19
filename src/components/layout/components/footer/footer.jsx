@@ -1,4 +1,4 @@
-import bgImage from '../../../../assets/images/image (4).png'
+import bgImage from '../../../../assets/images/image_f.png'
 import logo from '../../../../assets/images/Logo.png'
 import iconAI from '../../../../assets/images/Geometry Icon copy.png';
 import { MapPin, Send } from 'lucide-react';
@@ -8,6 +8,7 @@ import { MdLocationOn } from 'react-icons/md';
 import { RiInstagramFill } from 'react-icons/ri';
 import { GiCheckedShield } from 'react-icons/gi';
 import { HiBuildingLibrary } from 'react-icons/hi2';
+import { useEffect, useState } from 'react';
 const Footer = () => {
   let arrData = [
     {
@@ -35,6 +36,10 @@ const Footer = () => {
       text2: "Мы сохраняем традицию и историю для будущего" 
     }
   ]
+  let [copyStyle, setCopyStyle] = useState(false)
+  useEffect(() => {
+    setTimeout(() => setCopyStyle(false), 500)
+  }, [copyStyle])
   return (
     <div>
         <footer className='relative'>
@@ -65,10 +70,10 @@ const Footer = () => {
                   <p className='text-[#b17912] font-bold text-[25px]'>СВЯЖИТЕСЬ С НАМИ</p>
                   <LineDot className="w-full my-2"/>
                   <div className='flex flex-col gap-4 mt-5'>
-                    <p className='flex items-center gap-3'><MdLocationOn size={24} className='text-[#b17912]'/>Душанбе, республика Таджикистан</p>
-                    <a href={`https://t.me/codingiTojikona`} className='flex items-center gap-3'><FaTelegramPlane size={24} className='text-[#b17912]'/>https://t.me/codingiTojikona</a>
-                    <a href={`https://www.instagram.com/kavsaracademy.tj?igsh=NzJsYWIxaTF0eDJ2`} className='flex items-center gap-3'><RiInstagramFill  size={24} className='text-[#b17912]'/>kavsaracademy.tj</a>
-                    <p onClick={() => navigator.clipboard.writeText("(+992) 205122525")} className='flex items-center gap-3'><FaPhoneAlt   size={23} className='text-[#b17912]'/>(+992) 205122525</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Nemat+Karaboyev+29,+Dushanbe,+Tajikistan" target='_blank' rel="noopener noreferrer" className='flex items-center gap-3'><MdLocationOn size={24} className='text-[#b17912]'/>Душанбе, республика Таджикистан</a>
+                    <a href={`https://t.me/codingiTojikona`} target='_blank' rel="noopener noreferrer" className='flex items-center gap-3'><FaTelegramPlane size={24} className='text-[#b17912]'/>codingiTojikona</a>
+                    <a href={`https://www.instagram.com/kavsaracademy.tj?igsh=NzJsYWIxaTF0eDJ2`} target='_blank' rel="noopener noreferrer" className='flex items-center gap-3'><RiInstagramFill  size={24} className='text-[#b17912]'/>kavsaracademy.tj</a>
+                    <a href="tel:+992205122525" className="hover:underline flex items-center gap-3"><FaPhoneAlt size={23} className='text-[#b17912]'/>(+992) 205122525</a>
                   </div>
                 </div>
               </div>
