@@ -86,8 +86,9 @@ const Footer = () => {
                   <p>Сохраняем наследие. Сохраняем историю.</p>
                 </div>
                 <div className='flex gap-5 w-[30%] justify-end'>
-                  <FaInstagram size={24}/>
-                  <FaTelegramPlane size={24}/>
+                  <a href={`https://www.instagram.com/kavsaracademy.tj?igsh=NzJsYWIxaTF0eDJ2`} target='_blank' rel="noopener noreferrer"><FaInstagram size={24}/></a>
+                  <a href={`https://t.me/codingiTojikona`} target='_blank' rel="noopener noreferrer"><FaTelegramPlane size={24}/></a>
+                  <a href="tel:+992205122525"><FaPhoneAlt size={23}/></a>
                 </div>
               </div> 
             </div>
