@@ -4,17 +4,16 @@ import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
-  .use(HttpBackend) // Подключаем плагин для загрузки файлов
-  .use(LanguageDetector) // Автоматическое определение языка
+  .use(HttpBackend)
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'ru', // Язык по умолчанию, если перевод не найден
-    supportedLngs: ['ru', 'en', 'tj'], // Список поддерживаемых языков
+    fallbackLng: 'ru',
+    supportedLngs: ['ru', 'en', 'tj'],
     interpolation: {
-      escapeValue: false // React сам защищает от XSS
+      escapeValue: false
     },
     backend: {
-      // Путь, откуда будут скачиваться JSON файлы с переводами
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     }
   });

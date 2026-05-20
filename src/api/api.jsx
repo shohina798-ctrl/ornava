@@ -1,6 +1,6 @@
 import axios from 'axios';
 const API_URL = import.meta.env.VITE_API_URL;
-export const postRestoration = async ({ file, mode, useAi }) => {
+export const postRestoration = async ({ file, mode, useAi }) => {  
     const formData = new FormData();
 
     formData.append('Image', file);
@@ -11,5 +11,6 @@ export const postRestoration = async ({ file, mode, useAi }) => {
         `${API_URL}/api/restorations`,
         formData
     );
+
     return response.data;
 };

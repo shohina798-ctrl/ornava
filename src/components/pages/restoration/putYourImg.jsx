@@ -50,7 +50,6 @@ const PutYourImg = ({setRestoredData}) => {
             }, 100);
         },
         onError: (error) => {
-            console.log(error)
             toast.error(error?.response?.data?.detail || 'Проверьте интернет');
         }
     });
@@ -62,12 +61,7 @@ const PutYourImg = ({setRestoredData}) => {
             useAi: checkbox
         });
     };
-    {isPending && (
-        <div className="animate-pulse">
-            <div className="h-4 w-32 bg-gray-300 rounded mb-2"></div>
-            <div className="h-3 w-52 bg-gray-300 rounded"></div>
-        </div>
-    )}
+
   return (
     <div className='w-full h-full text-[#2d2217] text-center'>
         <div className='relative border-1 p-5 rounded-2xl bg-[#faf1e6] border-[#e7cdab]'>

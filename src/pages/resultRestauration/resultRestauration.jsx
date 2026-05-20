@@ -15,7 +15,7 @@ const ResultRestauration = ({restoredData}) => {
       const u = URL.createObjectURL(b);
       const a = document.createElement("a");
       a.href = u;
-      a.download = "result.png";
+      a.download = "ornava.png";
       a.click();
       URL.revokeObjectURL(u);
     });
@@ -72,9 +72,9 @@ const ResultRestauration = ({restoredData}) => {
                         <p className='text-[#9c7046] text-[14px]'>{restoredData?.fallbackUsed ? <Check/> : <X/>}</p>
                     </div>
                     <div className='flex gap-3 items-start'>
-                        <p className='bg-red-500 text-white rounded-[50%] w-6 h-6 flex items-center justify-center'>!</p>
+                        {restoredData?.warnings?.length > 0 && <p className='bg-red-500 text-white rounded-[50%] w-6 h-6 flex items-center justify-center'>!</p>}
                         <div className='w-[90%] flex flex-col gap-1'>
-                            {restoredData?.warnings.map((warning, index) => (
+                            {restoredData?.warnings?.map((warning, index) => (
                                 <div key={index} className='flex items-center gap-2'>
                                     <p>{warning}</p>
                                 </div>
