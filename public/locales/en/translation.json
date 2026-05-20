@@ -28,5 +28,17 @@
     "4_title": "Careful AI restoration",
     "4_desc": "Modern technology serves cultural preservation"
   },
-  "remove": "Remove"
+  "remove": "Remove",
+  "restoration_completed": "Your Restoration is Complete",
+  "restoration_completed_desc": "AI has carefully restored the image, preserving its original character and authenticity.",
+  "original_before": "Original (before)",
+  "result_after": "Result (after)",
+  "restoration_details": "Restoration Details",
+  "restoration_mode": "Restoration Mode",
+  "restoration_level": "Restoration Level",
+  "use_ai": "Use of AI",
+  "download_result": "Download Result",
+  "mode_conservative": "Conservative",
+  "mode_balanced": "Balanced",
+  "mode_strong": "Strong"
 }
